@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { MobileMenu } from "./MobileMenu";
 import { Logo } from "./Logo";
 
 export function Header() {
   return (
     <header className="relative flex items-center justify-between border-b border-white/10 bg-black px-6 py-8 text-xs tracking-[0.125rem] text-white sm:mx-10 sm:px-0 xl:mx-[165px] xl:pb-9 xl:pt-8">
-      <button className="h-[15px] w-4 bg-[url('/assets/shared/tablet/icon-hamburger.svg')] bg-cover bg-no-repeat xl:hidden"></button>
+      <MobileMenu />
       <Logo />
       <nav className="hidden xl:inline-block">
         <ul className="flex gap-[34px] uppercase">
