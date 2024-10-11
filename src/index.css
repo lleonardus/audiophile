@@ -6,6 +6,6 @@
 
 @layer components {
   #root {
-    @apply flex justify-center;
+    @apply flex justify-center font-manrope;
   }
 }
