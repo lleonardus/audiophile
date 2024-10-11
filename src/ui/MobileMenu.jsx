@@ -31,7 +31,7 @@ export function MobileMenu() {
       >
         <div
           ref={menuRef}
-          className="flex h-fit w-full flex-col gap-[68px] rounded-b-lg bg-white px-6 pb-[35px] pt-[84px] sm:flex-row sm:justify-between sm:gap-2.5 sm:px-0 sm:pb-[67px] sm:pt-[108px] *:sm:w-full"
+          className="flex h-fit w-full flex-col gap-[68px] rounded-b-lg bg-white px-6 pb-[35px] pt-[84px] sm:flex-row sm:justify-between sm:gap-2.5 sm:px-10 sm:pb-[67px] sm:pt-[108px] *:sm:w-full"
         >
           <div className="relative rounded-lg bg-gray-100 px-5 pb-[22px] pt-[88px] text-center font-bold uppercase">
             <div className="absolute left-1/2 top-[-52px] w-[143px] -translate-x-1/2">
