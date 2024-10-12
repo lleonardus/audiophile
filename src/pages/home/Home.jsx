@@ -3,7 +3,7 @@ import { ButtonLink } from "../../ui/ButtonLink";
 export function Home() {
   return (
     <>
-      <section className="flex flex-col items-center bg-[#191919] bg-[url('/assets/home/mobile/image-header.jpg')] bg-[length:385px_633.6px] bg-[center_bottom_-1rem] bg-no-repeat px-6 pb-[112px] pt-[108px] text-center text-white sm:w-full sm:bg-[url('/assets/home/tablet/image-header.jpg')] sm:bg-contain sm:bg-top sm:px-[195px] sm:pb-[167px] sm:pt-[216px] lg:items-start lg:bg-[url('/assets/home/desktop/image-hero.jpg')] lg:bg-center lg:pb-[158px] lg:pl-[165px] lg:pt-[225px] lg:text-left">
+      <section className="flex flex-col items-center bg-[#191919] bg-[url('/assets/home/mobile/image-header.jpg')] bg-[length:385px_633.6px] bg-[center_bottom_-1rem] bg-no-repeat px-6 pb-[112px] pt-[108px] text-center text-white sm:w-full sm:bg-[url('/assets/home/tablet/image-header.jpg')] sm:bg-contain sm:bg-top sm:px-[195px] sm:pb-[167px] sm:pt-[126px] lg:items-start lg:bg-[url('/assets/home/desktop/image-hero.jpg')] lg:bg-center lg:pb-[158px] lg:pl-[165px] lg:pt-[128px] lg:text-left">
         <div className="lg:max-w-[379px]">
           <p className="mb-4 text-sm uppercase text-white/50 sm:mb-6">
             New Product
