@@ -3,8 +3,8 @@ import { ButtonLink } from "../../ui/ButtonLink";
 export function Home() {
   return (
     <>
-      <section className="flex flex-col items-center bg-[#191919] bg-[url('/assets/home/mobile/image-header.jpg')] bg-[length:385px_633.6px] bg-[center_bottom_-1rem] bg-no-repeat px-6 pb-[112px] pt-[108px] text-center text-white sm:w-full sm:bg-[url('/assets/home/tablet/image-header.jpg')] sm:bg-contain sm:bg-top sm:px-[195px] sm:pb-[167px] sm:pt-[126px] lg:items-start lg:bg-[url('/assets/home/desktop/image-hero.jpg')] lg:bg-center lg:pb-[158px] lg:pl-[165px] lg:pt-[128px] lg:text-left">
-        <div className="lg:max-w-[379px]">
+      <section className="flex flex-col items-center bg-[#191919] bg-[url('/assets/home/mobile/image-header.jpg')] bg-[length:385px_633.6px] bg-[center_bottom_-1rem] bg-no-repeat px-6 pb-[112px] pt-[108px] text-center text-white sm:w-full sm:bg-[url('/assets/home/tablet/image-header.jpg')] sm:bg-[length:780px_710px] sm:bg-bottom sm:px-[195px] sm:pb-[167px] sm:pt-[126px] xl:items-start xl:bg-[url('/assets/home/desktop/image-hero.jpg')] xl:bg-contain xl:bg-center xl:pb-[158px] xl:pl-[165px] xl:pt-[128px] xl:text-left">
+        <div className="max-w-[379px]">
           <p className="mb-4 text-sm uppercase text-white/50 sm:mb-6">
             New Product
           </p>
