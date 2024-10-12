@@ -15,17 +15,25 @@ export function Header() {
         <Logo />
         <nav className="hidden xl:inline-block">
           <ul className="flex gap-[34px] uppercase">
-            <li className="transition-colors hover:text-orange-700">
-              <Link to="/">home</Link>
+            <li>
+              <Link to="/" className="transition-colors hover:text-orange-700">
+                home
+              </Link>
             </li>
-            <li className="transition-colors hover:text-orange-700">
-              <Link to="/">headphones</Link>
+            <li>
+              <Link to="/" className="transition-colors hover:text-orange-700">
+                headphones
+              </Link>
             </li>
-            <li className="transition-colors hover:text-orange-700">
-              <Link to="/">speakers</Link>
+            <li>
+              <Link to="/" className="transition-colors hover:text-orange-700">
+                speakers
+              </Link>
             </li>
-            <li className="transition-colors hover:text-orange-700">
-              <Link to="/">earphone</Link>
+            <li>
+              <Link to="/" className="transition-colors hover:text-orange-700">
+                earphone
+              </Link>
             </li>
           </ul>
         </nav>
