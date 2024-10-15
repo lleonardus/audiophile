@@ -11,24 +11,6 @@ export function AboutUsSection() {
           alt="Man listening to music"
         />
       </div>
-
-      {/*
-      <picture>
-        <source
-          media="(min-width: 1280px)"
-          srcSet="/assets/shared/desktop/image-best-gear.jpg"
-        />
-        <source
-          media="(min-width: 640px)"
-          srcSet="/assets/shared/tablet/image-best-gear.jpg"
-        />
-        <img
-          className="h-full w-full rounded-lg sm:h-auto sm:w-auto xl:row-start-2 xl:h-full xl:w-full"
-          src="/assets/shared/mobile/image-best-gear.jpg"
-          alt="Man listening to music"
-        />
-      </picture>
-      */}
       <div className="space-y-8 text-center sm:mx-auto sm:max-w-[750px] sm:px-[58px] xl:row-start-1 xl:max-w-[450px] xl:px-0 xl:text-left">
         <h2 className="text-[1.75rem] font-bold uppercase tracking-[0.0625rem] sm:text-4xl">
           BRINGING YOU THE
