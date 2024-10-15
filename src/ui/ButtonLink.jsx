@@ -6,8 +6,8 @@ export function ButtonLink({ children, color, width = "160px", to, type }) {
 
   const colorStyles = {
     orange: `${baseStyle} text-white bg-orange-700 hover:bg-orange-400`,
-    white: `${baseStyle} text-black bg-white border hover:text-white hover:bg-black`,
-    black: `${baseStyle} text-white bg-black border hover:text-black hover:bg-white`,
+    transparent: `${baseStyle} text-black bg-[transparent] border hover:text-white hover:bg-black`,
+    black: `${baseStyle} text-white bg-black hover:bg-[#4C4C4C]`,
   };
 
   if (to) {
