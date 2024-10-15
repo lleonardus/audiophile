@@ -1,6 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { MobileMenu } from "./MobileMenu";
 import { Logo } from "./Logo";
+import { NavigationLinks } from "./NavigationLinks";
 
 export function Header() {
   const { pathname } = useLocation();
@@ -13,30 +14,7 @@ export function Header() {
       <div className="flex items-center justify-between border-b border-white/10 px-6 py-8 sm:px-0 xl:pb-9 xl:pt-8">
         <MobileMenu />
         <Logo />
-        <nav className="hidden xl:inline-block">
-          <ul className="flex gap-[34px] uppercase">
-            <li>
-              <Link to="/" className="transition-colors hover:text-orange-700">
-                home
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="transition-colors hover:text-orange-700">
-                headphones
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="transition-colors hover:text-orange-700">
-                speakers
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="transition-colors hover:text-orange-700">
-                earphone
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <NavigationLinks className="hidden xl:inline-block" />
         <button className="text-white transition-colors hover:text-orange-700">
           <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg">
             <path

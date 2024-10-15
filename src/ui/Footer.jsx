@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
+import { NavigationLinks } from "./NavigationLinks";
 import { IconFacebook } from "./icons/IconFacebook";
 import { IconTwitter } from "./icons/IconTwitter";
 import { IconInstagram } from "./icons/IconInstagram";
@@ -10,42 +11,7 @@ export function Footer() {
       <div className="flex flex-col items-center px-6 sm:items-start sm:px-[39px] xl:px-[165px]">
         <div className="relative flex flex-col items-center gap-14 pt-14 before:absolute before:left-1/2 before:top-0 before:h-1 before:w-[101px] before:-translate-x-1/2 before:bg-orange-700 sm:items-start sm:gap-8 sm:before:left-0 sm:before:translate-x-0 xl:w-full xl:flex-row xl:justify-between">
           <Logo />
-          <nav>
-            <ul className="flex flex-col gap-4 text-xs uppercase tracking-[0.1250rem] sm:flex-row sm:gap-[34px]">
-              <li>
-                <Link
-                  to="/"
-                  className="transition-colors hover:text-orange-700"
-                >
-                  home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="transition-colors hover:text-orange-700"
-                >
-                  headphones
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="transition-colors hover:text-orange-700"
-                >
-                  speakers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="transition-colors hover:text-orange-700"
-                >
-                  earphone
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <NavigationLinks />
         </div>
         <div className="mb-14 mt-14 flex flex-col items-center gap-y-14 text-base text-white/50 sm:mt-8 sm:grid sm:w-full sm:grid-cols-2 sm:grid-rows-2 sm:items-start sm:gap-y-20 sm:space-y-0">
           <p className="sm:col-span-2 sm:max-w-[740px] xl:col-span-1 xl:max-w-[540px]">
