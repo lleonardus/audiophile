@@ -2,7 +2,7 @@ import { ButtonLink } from "../../../ui/ButtonLink";
 
 export function MainProductsSection() {
   return (
-    <section className="mt-[120px] flex flex-col gap-6 px-6 sm:mt-[96px] sm:gap-8 sm:px-[39px] xl:mt-[168px] xl:gap-12 xl:px-[165px]">
+    <section className="mb-[120px] mt-[120px] flex flex-col gap-6 px-6 sm:mb-[96px] sm:mt-[96px] sm:gap-8 sm:px-[39px] xl:mb-[200px] xl:mt-[168px] xl:gap-12 xl:px-[165px]">
       <div className="flex flex-col items-center rounded-lg bg-orange-700 bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-[length:500px_570px] bg-[center_top_-8rem] bg-no-repeat px-6 pb-[55px] pt-[61px] text-center text-white sm:bg-[length:900px_900px] sm:bg-[center_top_-16.825rem] sm:pb-16 xl:flex-row xl:items-start xl:justify-between xl:gap-10 xl:overflow-hidden xl:bg-cover xl:bg-[top_left_-15rem] xl:pb-0 xl:pl-[140px] xl:pr-[65px] xl:pt-[133px] xl:text-left 2xl:justify-center 2xl:gap-[148px]">
         <picture>
           <source

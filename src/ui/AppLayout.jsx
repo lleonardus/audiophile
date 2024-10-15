@@ -7,7 +7,6 @@ export function AppLayout() {
       <Header />
       <main>
         <Outlet />
-        <div className="hidden">about us</div>
       </main>
       <footer className="hidden">footer</footer>
     </div>
