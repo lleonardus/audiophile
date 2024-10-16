@@ -10,18 +10,27 @@ export function NavigationLinks({ className }) {
           </Link>
         </li>
         <li>
-          <Link to="/" className="transition-colors hover:text-orange-700">
+          <Link
+            to="/categories/headphones"
+            className="transition-colors hover:text-orange-700"
+          >
             HEADPHONES
           </Link>
         </li>
         <li>
-          <Link to="/" className="transition-colors hover:text-orange-700">
+          <Link
+            to="/categories/speakers"
+            className="transition-colors hover:text-orange-700"
+          >
             SPEAKERS
           </Link>
         </li>
         <li>
-          <Link to="/" className="transition-colors hover:text-orange-700">
-            EARPHONE
+          <Link
+            to="/categories/earphones"
+            className="transition-colors hover:text-orange-700"
+          >
+            EARPHONES
           </Link>
         </li>
       </ul>

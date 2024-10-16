@@ -19,7 +19,7 @@ export function ListOfCategories({ className, componentRef, handleLinkClick }) {
         </h3>
         <Link
           onClick={handleLinkClick}
-          to="/"
+          to="/categories/headphones"
           className="mx-auto mt-[17px] flex w-min items-center gap-[13.32px] text-[0.8125rem] tracking-[0.0625rem] text-gray-900/50 transition-colors hover:text-orange-700"
         >
           <span>shop</span>
@@ -43,7 +43,7 @@ export function ListOfCategories({ className, componentRef, handleLinkClick }) {
         </h3>
         <Link
           onClick={handleLinkClick}
-          to="/"
+          to="/categories/speakers"
           className="mx-auto mt-[17px] flex w-min items-center gap-[13.32px] text-[0.8125rem] tracking-[0.0625rem] text-gray-900/50 transition-colors hover:text-orange-700"
         >
           <span>shop</span>
@@ -67,7 +67,7 @@ export function ListOfCategories({ className, componentRef, handleLinkClick }) {
         </h3>
         <Link
           onClick={handleLinkClick}
-          to="/"
+          to="/categories/earphones"
           className="mx-auto mt-[17px] flex w-min items-center gap-[13.32px] text-[0.8125rem] tracking-[0.0625rem] text-gray-900/50 transition-colors hover:text-orange-700"
         >
           <span>shop</span>
