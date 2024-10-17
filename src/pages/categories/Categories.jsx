@@ -48,7 +48,7 @@ export function Categories() {
                   />
                 </picture>
                 <div className="mt-8 space-y-6 sm:mt-[52px] xl:mt-0">
-                  {id === 0 && (
+                  {product.isNew && (
                     <p className="mb-4 text-sm uppercase text-orange-700 sm:mb-6">
                       New Product
                     </p>
