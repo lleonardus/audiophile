@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 
-export function ButtonLink({ children, color, width = "160px", to, type }) {
+export function ButtonLink({
+  children,
+  onClick,
+  color,
+  width = "160px",
+  to,
+  type,
+}) {
   const baseStyle = `inline-block py-[15px] text-[0.8125rem] text-center
                      font-bold uppercase tracking-[0.0625rem] transition-colors`;
 
@@ -12,14 +19,24 @@ export function ButtonLink({ children, color, width = "160px", to, type }) {
 
   if (to) {
     return (
-      <Link to={to} className={colorStyles[color]} style={{ width }}>
+      <Link
+        to={to}
+        onClick={onClick}
+        className={colorStyles[color]}
+        style={{ width }}
+      >
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={colorStyles[color]} style={{ width }}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={colorStyles[color]}
+      style={{ width }}
+    >
       {children}
     </button>
   );
