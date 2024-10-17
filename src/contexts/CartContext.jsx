@@ -10,8 +10,6 @@ export function CartProvider({ children }) {
     return items ? JSON.parse(items) : [];
   });
 
-  const totalQuantity = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
-
   const totalPrice = cartItems.reduce(
     (acc, curr) => acc + curr.price * curr.quantity,
     0,
@@ -61,7 +59,6 @@ export function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         cartItems,
-        totalQuantity,
         totalPrice,
         addItem,
         incrementQuantity,

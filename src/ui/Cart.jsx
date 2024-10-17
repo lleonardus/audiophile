@@ -6,7 +6,6 @@ import { IconCart } from "./icons/IconCart";
 export function Cart() {
   const {
     cartItems,
-    totalQuantity,
     totalPrice,
     removeAll,
     incrementQuantity,
@@ -42,7 +41,7 @@ export function Cart() {
           className="absolute right-0 mx-6 mt-6 flex h-fit w-full max-w-[327px] flex-col items-center rounded-lg bg-white px-[28px] py-8 text-black sm:mx-[39px] xl:mx-[165px]"
         >
           <div className="flex w-full justify-between gap-2">
-            <h3 className="text-lg uppercase">Cart({totalQuantity})</h3>
+            <h3 className="text-lg uppercase">Cart({cartItems.length})</h3>
             <button
               onClick={removeAll}
               className="text-base tracking-[0px] text-black/50 underline"
@@ -86,7 +85,7 @@ export function Cart() {
               );
             })}
           </div>
-          {totalQuantity > 0 && (
+          {cartItems.length > 0 && (
             <div className="w-full">
               <div className="mb-6 mt-8 flex justify-between gap-2">
                 <span className="text-base uppercase tracking-[0px] text-black/50">
