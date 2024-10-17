@@ -13,7 +13,7 @@ export function HeroSection() {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <ButtonLink to="/" color="orange">
+        <ButtonLink to="/products/xx99-mark-two-headphones" color="orange">
           See product
         </ButtonLink>
       </div>

@@ -27,14 +27,14 @@ export function MainProductsSection() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <ButtonLink to="/" color="black">
+          <ButtonLink to="/products/zx9-speaker" color="black">
             See product
           </ButtonLink>
         </div>
       </div>
       <div className="space-y-8 rounded-lg bg-gray-100 bg-[url('/assets/home/mobile/image-speaker-zx7.jpg')] bg-cover bg-center bg-no-repeat px-[25.5px] py-[101px] sm:bg-[url('/assets/home/tablet/image-speaker-zx7.jpg')] sm:px-[62px] lg:bg-[url('/assets/home/desktop/image-speaker-zx7.jpg')] xl:px-[95px] 2xl:px-[195px]">
         <h3 className="text-2xl uppercase">ZX7 SPEAKER</h3>
-        <ButtonLink to="/" color="transparent">
+        <ButtonLink to="/products/zx7-speaker" color="transparent">
           See product
         </ButtonLink>
       </div>
@@ -51,7 +51,7 @@ export function MainProductsSection() {
         </div>
         <div className="space-y-8 rounded-lg bg-gray-100 px-6 py-[41px] sm:px-[41px] sm:py-[101px] xl:px-[95px] 2xl:py-[110px]">
           <h3 className="text-2xl uppercase">YX1 EARPHONES</h3>
-          <ButtonLink to="/" color="transparent">
+          <ButtonLink to="/products/yx1-earphones" color="transparent">
             See product
           </ButtonLink>
         </div>
