@@ -1,10 +1,28 @@
+import { useCart } from "../contexts/CartContext";
 import { useModal } from "../hooks/useModal";
 import { ButtonLink } from "./ButtonLink";
 import { IconCart } from "./icons/IconCart";
 
 export function Cart() {
+  const {
+    cartItems,
+    totalQuantity,
+    totalPrice,
+    removeAll,
+    incrementQuantity,
+    decrementQuantity,
+  } = useCart();
   const { isModalOpen, setIsModalOpen, buttonRef, modalContentRef } =
     useModal();
+
+  function reduceName(item) {
+    let slug = item.slug.replaceAll("-", " ");
+    let name = item.name.length < slug.length ? item.name : slug;
+
+    name = name.split(" ").slice(0, -1).join(" ");
+
+    return name.length <= 12 ? name : name.split(" ")[0];
+  }
 
   return (
     <>
@@ -24,22 +42,70 @@ export function Cart() {
           className="absolute right-0 mx-6 mt-6 flex h-fit w-full max-w-[327px] flex-col items-center rounded-lg bg-white px-[28px] py-8 text-black sm:mx-[39px] xl:mx-[165px]"
         >
           <div className="flex w-full justify-between gap-2">
-            <h3 className="text-lg uppercase">Cart(3)</h3>
-            <button className="text-base tracking-[0px] text-black/50 underline">
+            <h3 className="text-lg uppercase">Cart({totalQuantity})</h3>
+            <button
+              onClick={removeAll}
+              className="text-base tracking-[0px] text-black/50 underline"
+            >
               Remove all
             </button>
           </div>
-          <div className="w-full">
-            <div className="mb-6 mt-8 flex justify-between gap-2">
-              <span className="text-base uppercase tracking-[0px] text-black/50">
-                Total
-              </span>
-              <span className="text-lg tracking-[0px]">$5,396</span>
-            </div>
-            <ButtonLink to="/" color="orange" width="100%">
-              Checkout
-            </ButtonLink>
+          <div className="mt-[31px] flex w-full flex-col gap-6">
+            {cartItems.map((item) => {
+              return (
+                <div key={item.id} className="flex items-center gap-4">
+                  <img
+                    src={`/assets/cart/image-${item.slug}.jpg`}
+                    alt={`${item.name} thubmnail`}
+                    className="aspect-square h-full w-16 rounded-lg"
+                  />
+                  <div>
+                    <h4 className="w-[100px] overflow-hidden text-ellipsis whitespace-nowrap text-base font-bold uppercase tracking-[0px]">
+                      {reduceName(item)}
+                    </h4>
+                    <p className="text-[0.875rem] font-bold leading-[25px] tracking-[0px] text-black/50">
+                      ${item.price.toLocaleString("en-US")}
+                    </p>
+                  </div>
+                  <div className="ml-auto flex max-w-[96px] items-center justify-around gap-3 bg-gray-100 px-2 py-[7px] text-xs leading-[0.0625rem]">
+                    <button
+                      onClick={() => decrementQuantity(item.id)}
+                      className="h-[18px] w-4 text-black/25 hover:text-orange-700"
+                    >
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      onClick={() => incrementQuantity(item.id)}
+                      className="h-[18px] w-4 text-black/25 hover:text-orange-700"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
+          {totalQuantity > 0 && (
+            <div className="w-full">
+              <div className="mb-6 mt-8 flex justify-between gap-2">
+                <span className="text-base uppercase tracking-[0px] text-black/50">
+                  Total
+                </span>
+                <span className="text-lg tracking-[0px]">
+                  ${totalPrice.toLocaleString("en-US")}
+                </span>
+              </div>
+              <ButtonLink
+                to="/checkout"
+                color="orange"
+                width="100%"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Checkout
+              </ButtonLink>
+            </div>
+          )}
         </div>
       </div>
     </>

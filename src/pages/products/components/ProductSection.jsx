@@ -1,7 +1,33 @@
+import { useState } from "react";
+import { useCart } from "../../../contexts/CartContext";
 import { Link } from "react-router-dom";
 import { ButtonLink } from "../../../ui/ButtonLink";
 
 export function ProductSection({ product }) {
+  const { addItem } = useCart();
+  const [itemQuantity, setItemQuantity] = useState(1);
+
+  function handleIncrementQuantity() {
+    setItemQuantity((quantity) => quantity + 1);
+  }
+
+  function handleDecrementQuantity() {
+    setItemQuantity((quantity) => (quantity > 1 ? quantity - 1 : quantity));
+  }
+
+  function handleAddItem() {
+    const newItem = {
+      id: product.id,
+      name: product.name,
+      slug: product.slug,
+      price: product.price,
+      quantity: itemQuantity,
+    };
+
+    addItem(newItem);
+    setItemQuantity(1);
+  }
+
   return (
     <section className="mt-16 px-6 sm:px-[39px] xl:px-[165px]">
       <Link
@@ -36,15 +62,22 @@ export function ProductSection({ product }) {
             <p className="text-lg">${product.price.toLocaleString("en-US")}</p>
             <div className="flex h-12 gap-4">
               <div className="flex w-[120px] items-center justify-between gap-5 bg-gray-100 px-4 py-[15px] text-xs leading-[0.0625rem]">
-                <button className="h-[18px] w-4 text-black/25 hover:text-orange-700">
+                <button
+                  onClick={handleDecrementQuantity}
+                  disabled={itemQuantity === 1}
+                  className="h-[18px] w-4 text-black/25 hover:text-orange-700 disabled:cursor-not-allowed disabled:hover:text-black/25"
+                >
                   -
                 </button>
-                <span>1</span>
-                <button className="h-[18px] w-4 text-black/25 hover:text-orange-700">
+                <span>{itemQuantity}</span>
+                <button
+                  onClick={handleIncrementQuantity}
+                  className="h-[18px] w-4 text-black/25 hover:text-orange-700"
+                >
                   +
                 </button>
               </div>
-              <ButtonLink color="orange" type="button">
+              <ButtonLink onClick={handleAddItem} color="orange" type="button">
                 Add To Cart
               </ButtonLink>
             </div>
