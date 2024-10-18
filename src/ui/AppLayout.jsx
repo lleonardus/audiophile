@@ -4,7 +4,7 @@ import { Footer } from "./Footer";
 
 export function AppLayout() {
   return (
-    <div className="h-dvh w-full xl:max-w-[1920px]">
+    <div className="h-dvh w-full bg-gray-50 xl:max-w-[1920px]">
       <Header />
       <main>
         <Outlet />
