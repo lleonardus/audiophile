@@ -5,6 +5,7 @@ export default {
     colors: {
       black: "#000000",
       white: "#FFFFFF",
+      red: "#CD2C2C",
       orange: {
         400: "#FBAF85",
         700: "#D87D4A",
