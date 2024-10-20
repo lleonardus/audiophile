@@ -174,6 +174,7 @@ export function Checkout() {
                   </div>
                   <Input
                     id="zipCode"
+                    type="number"
                     placeholder="10001"
                     isInvalid={errors.zipCode}
                     register={register("zipCode", {
@@ -272,6 +273,7 @@ export function Checkout() {
                   </div>
                   <Input
                     id="eMoneyNumber"
+                    type="number"
                     placeholder="238521993"
                     isInvalid={errors.eMoneyNumber}
                     register={register("eMoneyNumber", {
@@ -296,6 +298,7 @@ export function Checkout() {
                   </div>
                   <Input
                     id="eMoneyPin"
+                    type="number"
                     placeholder="6891"
                     isInvalid={errors.eMoneyPin}
                     register={register("eMoneyPin", {
