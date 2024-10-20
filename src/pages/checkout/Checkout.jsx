@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Input } from "./components/form/Input";
+import { InputRadio } from "./components/form/InputRadio";
 import { SummarySection } from "./components/SummarySection";
 
 export function Checkout() {
@@ -56,7 +57,7 @@ export function Checkout() {
                 Billing Details
               </h3>
               <div className="wrapper grid gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-                <div className="area">
+                <div>
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="name"
@@ -80,7 +81,7 @@ export function Checkout() {
                     })}
                   />
                 </div>
-                <div className="area">
+                <div>
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="email"
@@ -104,7 +105,7 @@ export function Checkout() {
                     })}
                   />
                 </div>
-                <div className="area">
+                <div>
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="phoneNumber"
@@ -135,7 +136,7 @@ export function Checkout() {
                 Shipping Info
               </h3>
               <div className="wrapper grid gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-                <div className="area sm:col-span-2">
+                <div className="sm:col-span-2">
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="address"
@@ -159,7 +160,7 @@ export function Checkout() {
                     })}
                   />
                 </div>
-                <div className="area">
+                <div>
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="zipCode"
@@ -183,7 +184,7 @@ export function Checkout() {
                     })}
                   />
                 </div>
-                <div className="area">
+                <div>
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="city"
@@ -207,7 +208,7 @@ export function Checkout() {
                     })}
                   />
                 </div>
-                <div className="area">
+                <div>
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="country"
@@ -241,27 +242,23 @@ export function Checkout() {
                 <p className="text-[0.75rem] font-bold tracking-[-0.013125rem]">
                   Payment Method
                 </p>
-                <div
-                  className={`${paymentMethod === "e-Money" ? "border-orange-700" : "border-black/40"} flex w-full cursor-pointer items-center gap-4 rounded-lg border px-6 py-[19px] text-[0.8750rem] font-bold tracking-[-0.015625rem] placeholder:text-black/40 focus:outline-none sm:col-start-2`}
-                  onClick={() => setPaymentMethod("e-Money")}
+                <InputRadio
+                  value="e-Money"
+                  paymentMethod={paymentMethod}
+                  setPaymentMethod={setPaymentMethod}
                 >
-                  <span
-                    className={`${paymentMethod === "e-Money" ? "after:bg-orange-700" : ""} relative inline-block h-[20px] w-[20px] rounded-full border border-black/40 after:absolute after:left-1/2 after:top-1/2 after:h-[10px] after:w-[10px] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full`}
-                  ></span>
-                  <span>e-Money</span>
-                </div>
-                <div
-                  className={`${paymentMethod === "cash" ? "border-orange-700" : "border-black/40"} flex w-full cursor-pointer items-center gap-4 rounded-lg border px-6 py-[19px] text-[0.8750rem] font-bold tracking-[-0.015625rem] placeholder:text-black/40 focus:outline-none sm:col-start-2`}
-                  onClick={() => setPaymentMethod("cash")}
+                  e-Money
+                </InputRadio>
+                <InputRadio
+                  value="cash"
+                  paymentMethod={paymentMethod}
+                  setPaymentMethod={setPaymentMethod}
                 >
-                  <span
-                    className={`${paymentMethod === "cash" ? "after:bg-orange-700" : ""} relative inline-block h-[20px] w-[20px] rounded-full border border-black/40 after:absolute after:left-1/2 after:top-1/2 after:h-[10px] after:w-[10px] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full`}
-                  ></span>
-                  <span>Cash on Delivery</span>
-                </div>
+                  Cash on Delivery
+                </InputRadio>
               </div>
               <div className="mt-8 grid w-full gap-6 sm:mt-6 sm:grid-cols-2 sm:gap-4">
-                <div className="area">
+                <div>
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="eMoneyNumber"
@@ -285,7 +282,7 @@ export function Checkout() {
                     })}
                   />
                 </div>
-                <div className="area">
+                <div>
                   <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
                     <label
                       htmlFor="eMoneyPin"
