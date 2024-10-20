@@ -18,7 +18,7 @@ export function MobileMenu() {
         <ListOfCategories
           componentRef={modalContentRef}
           handleLinkClick={() => setIsModalOpen(false)}
-          className="rounded-b-lg pb-[35px] pt-[84px] sm:pb-[67px] sm:pt-[108px]"
+          className="rounded-b-lg bg-white pb-[35px] pt-[84px] sm:pb-[67px] sm:pt-[108px]"
         />
       </div>
     </>

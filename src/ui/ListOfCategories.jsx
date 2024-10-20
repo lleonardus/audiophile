@@ -4,7 +4,7 @@ export function ListOfCategories({ className, componentRef, handleLinkClick }) {
   return (
     <div
       ref={componentRef}
-      className={`${className} flex h-fit w-full flex-col gap-[68px] bg-white px-6 sm:flex-row sm:justify-between sm:gap-2.5 sm:px-10`}
+      className={`${className} flex h-fit w-full flex-col gap-[68px] px-6 sm:flex-row sm:justify-between sm:gap-2.5 sm:px-10`}
     >
       <div className="relative rounded-lg bg-gray-100 px-5 pb-[22px] pt-[88px] text-center font-bold uppercase sm:w-full">
         <div className="absolute left-1/2 top-[-52px] w-[143px] -translate-x-1/2">
