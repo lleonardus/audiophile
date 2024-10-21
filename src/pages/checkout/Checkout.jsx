@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useModal } from "../../hooks/useModal";
 import { Link } from "react-router-dom";
 import { Input } from "./components/form/Input";
 import { InputRadio } from "./components/form/InputRadio";
 import { SummarySection } from "./components/SummarySection";
+import { SuccessMessageModal } from "./components/SuccessMessageModal";
 
 export function Checkout() {
   const {
@@ -31,12 +33,16 @@ export function Checkout() {
 
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
 
+  const { isModalOpen, setIsModalOpen, modalContentRef } = useModal();
+
   function onSubmit(formData) {
     console.log(formData);
+    setIsModalOpen(true);
   }
 
   return (
     <section className="px-6 sm:px-[39px] xl:px-[165px]">
+      {isModalOpen && <SuccessMessageModal modalContentRef={modalContentRef} />}
       <Link
         to="/"
         className="mb-6 mt-4 inline-block text-base text-black/50 xl:mb-14"
