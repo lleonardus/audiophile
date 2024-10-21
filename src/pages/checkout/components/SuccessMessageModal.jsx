@@ -8,15 +8,6 @@ export function SuccessMessageModal({ modalContentRef }) {
   const vat = 0.2 * totalPrice;
   const total = totalPrice + shipping + vat;
 
-  function reduceName(item) {
-    let slug = item.slug.replaceAll("-", " ");
-    let name = item.name.length < slug.length ? item.name : slug;
-
-    name = name.split(" ").slice(0, -1).join(" ");
-
-    return name.length <= 12 ? name : name.split(" ")[0];
-  }
-
   return (
     <div className="absolute inset-0 z-[99999] h-full min-h-screen translate-y-[90px] bg-black/50 px-6">
       <div
@@ -43,7 +34,7 @@ export function SuccessMessageModal({ modalContentRef }) {
               />
               <div>
                 <h4 className="w-[100px] overflow-hidden text-ellipsis whitespace-nowrap text-base font-bold uppercase tracking-[0px]">
-                  {reduceName(item)}
+                  {item.reducedName}
                 </h4>
                 <p className="text-[0.875rem] font-bold leading-[25px] tracking-[0px] text-black/50">
                   ${item.price.toLocaleString("en-US")}

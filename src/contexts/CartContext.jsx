@@ -20,15 +20,25 @@ export function CartProvider({ children }) {
     localStorage.setItem(CART_ITEMS, JSON.stringify(newCartItems));
   }
 
+  function reduceName(item) {
+    let slug = item.slug.replaceAll("-", " ");
+    let name = item.name.length < slug.length ? item.name : slug;
+
+    name = name.split(" ").slice(0, -1).join(" ");
+
+    return name.length <= 12 ? name : name.split(" ")[0];
+  }
+
   function addItem(newItem) {
+    newItem.reducedName = reduceName(newItem);
     const existingItem = cartItems.find((item) => item.id === newItem.id);
     const newCartItems = !existingItem
       ? [...cartItems, newItem]
       : cartItems.map((item) =>
-          item.id === newItem.id
-            ? { ...item, quantity: newItem.quantity }
-            : item,
-        );
+        item.id === newItem.id
+          ? { ...item, quantity: newItem.quantity }
+          : item,
+      );
 
     updateCartItems(newCartItems);
   }
