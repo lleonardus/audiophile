@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Input } from "./components/form/Input";
 import { InputRadio } from "./components/form/InputRadio";
 import { SummarySection } from "./components/SummarySection";
+import { CashOnDeliveryMessage } from "./components/form/CashOnDeliveryMessage";
 import { SuccessMessageModal } from "./components/SuccessMessageModal";
 
 export function Checkout() {
@@ -264,58 +265,63 @@ export function Checkout() {
                   Cash on Delivery
                 </InputRadio>
               </div>
-              <div className="mt-8 grid w-full gap-6 sm:mt-6 sm:grid-cols-2 sm:gap-4">
-                <div>
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="eMoneyNumber"
-                      className={`${errors.eMoneyNumber ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      e-Money Number
-                    </label>
-                    {errors.eMoneyNumber && (
-                      <p className="text-red">{errors.eMoneyNumber?.message}</p>
-                    )}
+              {paymentMethod === "e-Money" && (
+                <div className="mt-8 grid w-full gap-6 sm:mt-6 sm:grid-cols-2 sm:gap-4">
+                  <div>
+                    <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
+                      <label
+                        htmlFor="eMoneyNumber"
+                        className={`${errors.eMoneyNumber ? "text-red" : ""} cursor-pointer font-bold`}
+                      >
+                        e-Money Number
+                      </label>
+                      {errors.eMoneyNumber && (
+                        <p className="text-red">
+                          {errors.eMoneyNumber?.message}
+                        </p>
+                      )}
+                    </div>
+                    <Input
+                      id="eMoneyNumber"
+                      type="number"
+                      placeholder="238521993"
+                      isInvalid={errors.eMoneyNumber}
+                      register={register("eMoneyNumber", {
+                        required: "This field is required",
+                        onChange: () => {
+                          clearErrors("eMoneyNumber");
+                        },
+                      })}
+                    />
                   </div>
-                  <Input
-                    id="eMoneyNumber"
-                    type="number"
-                    placeholder="238521993"
-                    isInvalid={errors.eMoneyNumber}
-                    register={register("eMoneyNumber", {
-                      required: "This field is required",
-                      onChange: () => {
-                        clearErrors("eMoneyNumber");
-                      },
-                    })}
-                  />
-                </div>
-                <div>
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="eMoneyPin"
-                      className={`${errors.eMoneyPin ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      e-Money PIN
-                    </label>
-                    {errors.eMoneyPin && (
-                      <p className="text-red">{errors.eMoneyPin?.message}</p>
-                    )}
+                  <div>
+                    <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
+                      <label
+                        htmlFor="eMoneyPin"
+                        className={`${errors.eMoneyPin ? "text-red" : ""} cursor-pointer font-bold`}
+                      >
+                        e-Money PIN
+                      </label>
+                      {errors.eMoneyPin && (
+                        <p className="text-red">{errors.eMoneyPin?.message}</p>
+                      )}
+                    </div>
+                    <Input
+                      id="eMoneyPin"
+                      type="number"
+                      placeholder="6891"
+                      isInvalid={errors.eMoneyPin}
+                      register={register("eMoneyPin", {
+                        required: "This field is required",
+                        onChange: () => {
+                          clearErrors("eMoneyPin");
+                        },
+                      })}
+                    />
                   </div>
-                  <Input
-                    id="eMoneyPin"
-                    type="number"
-                    placeholder="6891"
-                    isInvalid={errors.eMoneyPin}
-                    register={register("eMoneyPin", {
-                      required: "This field is required",
-                      onChange: () => {
-                        clearErrors("eMoneyPin");
-                      },
-                    })}
-                  />
                 </div>
-              </div>
+              )}
+              {paymentMethod === "cash" && <CashOnDeliveryMessage />}
             </section>
           </div>
         </form>
