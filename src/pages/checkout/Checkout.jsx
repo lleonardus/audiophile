@@ -46,7 +46,7 @@ export function Checkout() {
       {isModalOpen && <SuccessMessageModal modalContentRef={modalContentRef} />}
       <Link
         to="/"
-        className="mb-6 mt-4 inline-block text-base text-black/50 xl:mb-14"
+        className="mb-6 mt-4 inline-block text-base text-black/50 sm:mt-12 xl:mb-10 xl:mt-20"
       >
         Go Back
       </Link>
