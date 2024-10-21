@@ -46,7 +46,7 @@ export function SuccessMessageModal({ modalContentRef }) {
             </div>
             {cartItems.length > 1 && (
               <p className="border-t border-t-black/10 pb-[25px] pt-3 text-center text-[0.75rem] font-bold tracking-[-0.013125rem] text-black/50">
-                and other {cartItems.length} item(s)
+                and other {cartItems.length - 1} item(s)
               </p>
             )}
           </div>
