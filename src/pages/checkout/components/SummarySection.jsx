@@ -2,10 +2,7 @@ import { useCart } from "../../../contexts/CartContext";
 import { ButtonLink } from "../../../ui/ButtonLink";
 
 export function SummarySection({ handleSubmit }) {
-  const { cartItems, totalPrice } = useCart();
-  const shipping = 50;
-  const vat = 0.2 * totalPrice;
-  const total = totalPrice + shipping + vat;
+  const { cartItems, totalPrice, shipping, vat, total } = useCart();
 
   return (
     <div className="rounded-lg bg-white px-6 py-8 xl:h-fit">

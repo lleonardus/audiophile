@@ -15,6 +15,10 @@ export function CartProvider({ children }) {
     0,
   );
 
+  const shipping = 50;
+  const vat = 0.2 * totalPrice;
+  const total = totalPrice + shipping + vat;
+
   function updateCartItems(newCartItems) {
     setCartItems(newCartItems);
     localStorage.setItem(CART_ITEMS, JSON.stringify(newCartItems));
@@ -70,6 +74,9 @@ export function CartProvider({ children }) {
       value={{
         cartItems,
         totalPrice,
+        shipping,
+        vat,
+        total,
         addItem,
         incrementQuantity,
         decrementQuantity,

@@ -2,11 +2,8 @@ import { useCart } from "../../../contexts/CartContext";
 import { ButtonLink } from "../../../ui/ButtonLink";
 
 export function SuccessMessageModal({ modalContentRef }) {
-  const { cartItems, totalPrice } = useCart();
+  const { cartItems, total } = useCart();
   const item = cartItems[0];
-  const shipping = 50;
-  const vat = 0.2 * totalPrice;
-  const total = totalPrice + shipping + vat;
 
   return (
     <div className="absolute inset-0 z-[99999] h-full min-h-screen translate-y-[90px] bg-black/50 px-6">
