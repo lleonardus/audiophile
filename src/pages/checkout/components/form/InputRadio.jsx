@@ -6,7 +6,7 @@ export function InputRadio({
 }) {
   return (
     <div
-      className={`${paymentMethod === value ? "border-orange-700" : "border-black/40"} flex w-full cursor-pointer items-center gap-4 rounded-lg border px-6 py-[19px] text-[0.8750rem] font-bold tracking-[-0.015625rem] transition-colors placeholder:text-black/40 focus:outline-none sm:col-start-2`}
+      className={`${paymentMethod === value ? "border-orange-700" : "border-black/40"} flex w-full cursor-pointer items-center gap-4 rounded-lg border px-6 py-[19px] text-[0.8750rem] font-bold tracking-[-0.015625rem] transition-colors placeholder:text-black/40 hover:border-orange-700 focus:outline-none sm:col-start-2`}
       onClick={() => setPaymentMethod(value)}
     >
       <span
