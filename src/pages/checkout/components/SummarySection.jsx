@@ -5,12 +5,12 @@ export function SummarySection({ handleSubmit }) {
   const { cartItems, totalPrice, shipping, vat, total } = useCart();
 
   return (
-    <div className="rounded-lg bg-white px-6 py-8 xl:h-fit">
+    <div className="rounded-lg bg-white px-6 py-8 sm:px-[33px] xl:h-fit">
       <h3 className="text-lg uppercase">Summary</h3>
       <div className="mt-[31px] flex w-full flex-col gap-6">
         {cartItems.map((item) => {
           return (
-            <div key={item.id} className="flex items-center gap-4">
+            <div key={item.id} className="flex gap-4">
               <img
                 src={`/assets/cart/image-${item.slug}.jpg`}
                 alt={`${item.name} thubmnail`}
