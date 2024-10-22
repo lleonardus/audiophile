@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useModal } from "../../hooks/useModal";
+import { SuccessMessageModal } from "./components/SuccessMessageModal";
 import { Link } from "react-router-dom";
 import { Input } from "./components/form/Input";
 import { InputRadio } from "./components/form/InputRadio";
-import { SummarySection } from "./components/SummarySection";
 import { CashOnDeliveryMessage } from "./components/form/CashOnDeliveryMessage";
-import { SuccessMessageModal } from "./components/SuccessMessageModal";
+import { SummarySection } from "./components/SummarySection";
 
 export function Checkout() {
   const {
@@ -53,7 +53,7 @@ export function Checkout() {
       <div className="grid gap-8 xl:grid-cols-3">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="rounded-lg bg-white px-6 py-8 xl:col-span-2"
+          className="rounded-lg bg-white px-6 pb-8 pt-6 sm:px-7 sm:py-[30px] xl:col-span-2 xl:px-12 xl:pb-12 xl:pt-[54px]"
         >
           <h2 className="text-[1.75rem] font-bold uppercase tracking-[0.0625rem]">
             Checkout
