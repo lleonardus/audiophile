@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { SuccessMessageModal } from "./components/SuccessMessageModal";
 import { Link } from "react-router-dom";
+import { Label } from "./components/form/Label";
 import { Input } from "./components/form/Input";
 import { InputRadio } from "./components/form/InputRadio";
 import { CashOnDeliveryMessage } from "./components/form/CashOnDeliveryMessage";
@@ -11,9 +12,6 @@ export function Checkout() {
   const {
     register,
     handleSubmit,
-    setValue,
-    reset,
-    setError,
     clearErrors,
     formState: { errors, isSubmitSuccessful },
   } = useForm({
@@ -61,17 +59,9 @@ export function Checkout() {
               </h3>
               <div className="wrapper grid gap-y-6 sm:grid-cols-2 sm:gap-x-4">
                 <div>
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="name"
-                      className={`${errors.name ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      Name
-                    </label>
-                    {errors.name && (
-                      <p className="text-red">{errors.name?.message}</p>
-                    )}
-                  </div>
+                  <Label htmlFor="name" errors={errors} errorName="name">
+                    Name
+                  </Label>
                   <Input
                     id="name"
                     placeholder="Alexei Ward"
@@ -85,17 +75,9 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="email"
-                      className={`${errors.email ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      Email Address
-                    </label>
-                    {errors.email && (
-                      <p className="text-red">{errors.email?.message}</p>
-                    )}
-                  </div>
+                  <Label htmlFor="email" errors={errors} errorName="email">
+                    Email Address
+                  </Label>
                   <Input
                     id="email"
                     placeholder="alexei@email.com"
@@ -109,17 +91,13 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="phoneNumber"
-                      className={`${errors.phoneNumber ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      Phone Number
-                    </label>
-                    {errors.phoneNumber && (
-                      <p className="text-red">{errors.phoneNumber?.message}</p>
-                    )}
-                  </div>
+                  <Label
+                    htmlFor="phoneNumber"
+                    errors={errors}
+                    errorName="phoneNumber"
+                  >
+                    Phone Number
+                  </Label>
                   <Input
                     id="phoneNumber"
                     placeholder="+1 202-555-0136"
@@ -140,17 +118,9 @@ export function Checkout() {
               </h3>
               <div className="wrapper grid gap-y-6 sm:grid-cols-2 sm:gap-x-4">
                 <div className="sm:col-span-2">
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="address"
-                      className={`${errors.address ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      Your Adress
-                    </label>
-                    {errors.address && (
-                      <p className="text-red">{errors.address?.message}</p>
-                    )}
-                  </div>
+                  <Label htmlFor="address" errors={errors} errorName="address">
+                    Your Adress
+                  </Label>
                   <Input
                     id="address"
                     placeholder="1137 Williams Avenue"
@@ -164,17 +134,9 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="zipCode"
-                      className={`${errors.zipCode ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      Zip Code
-                    </label>
-                    {errors.zipCode && (
-                      <p className="text-red">{errors.zipCode?.message}</p>
-                    )}
-                  </div>
+                  <Label htmlFor="zipCode" errors={errors} errorName="zipCode">
+                    Zip Code
+                  </Label>
                   <Input
                     id="zipCode"
                     type="number"
@@ -189,17 +151,9 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="city"
-                      className={`${errors.city ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      City
-                    </label>
-                    {errors.city && (
-                      <p className="text-red">{errors.city?.message}</p>
-                    )}
-                  </div>
+                  <Label htmlFor="city" errors={errors} errorName="city">
+                    City
+                  </Label>
                   <Input
                     id="city"
                     placeholder="New York"
@@ -213,17 +167,9 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                    <label
-                      htmlFor="country"
-                      className={`${errors.country ? "text-red" : ""} cursor-pointer font-bold`}
-                    >
-                      Country
-                    </label>
-                    {errors.country && (
-                      <p className="text-red">{errors.country?.message}</p>
-                    )}
-                  </div>
+                  <Label htmlFor="country" errors={errors} errorName="country">
+                    Country
+                  </Label>
                   <Input
                     id="country"
                     placeholder="United States"
@@ -264,19 +210,13 @@ export function Checkout() {
               {paymentMethod === "e-Money" && (
                 <div className="mt-8 grid w-full gap-6 sm:mt-6 sm:grid-cols-2 sm:gap-4">
                   <div>
-                    <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                      <label
-                        htmlFor="eMoneyNumber"
-                        className={`${errors.eMoneyNumber ? "text-red" : ""} cursor-pointer font-bold`}
-                      >
-                        e-Money Number
-                      </label>
-                      {errors.eMoneyNumber && (
-                        <p className="text-red">
-                          {errors.eMoneyNumber?.message}
-                        </p>
-                      )}
-                    </div>
+                    <Label
+                      htmlFor="eMoneyNumber"
+                      errors={errors}
+                      errorName="eMoneyNumber"
+                    >
+                      e-Money Number
+                    </Label>
                     <Input
                       id="eMoneyNumber"
                       type="number"
@@ -291,17 +231,13 @@ export function Checkout() {
                     />
                   </div>
                   <div>
-                    <div className="mb-[9px] flex justify-between text-[0.75rem] tracking-[-0.013125rem]">
-                      <label
-                        htmlFor="eMoneyPin"
-                        className={`${errors.eMoneyPin ? "text-red" : ""} cursor-pointer font-bold`}
-                      >
-                        e-Money PIN
-                      </label>
-                      {errors.eMoneyPin && (
-                        <p className="text-red">{errors.eMoneyPin?.message}</p>
-                      )}
-                    </div>
+                    <Label
+                      htmlFor="eMoneyPin"
+                      errors={errors}
+                      errorName="eMoneyPin"
+                    >
+                      e-Money Pin
+                    </Label>
                     <Input
                       id="eMoneyPin"
                       type="number"
