@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useModal } from "../../hooks/useModal";
 import { SuccessMessageModal } from "./components/SuccessMessageModal";
 import { Link } from "react-router-dom";
 import { Input } from "./components/form/Input";
@@ -16,7 +15,7 @@ export function Checkout() {
     reset,
     setError,
     clearErrors,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     mode: "onChange",
     defaultValues: {
@@ -34,16 +33,13 @@ export function Checkout() {
 
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
 
-  const { isModalOpen, setIsModalOpen, modalContentRef } = useModal();
-
   function onSubmit(formData) {
     console.log(formData);
-    setIsModalOpen(true);
   }
 
   return (
     <section className="px-6 sm:px-[39px] xl:px-[165px]">
-      {isModalOpen && <SuccessMessageModal modalContentRef={modalContentRef} />}
+      {isSubmitSuccessful && <SuccessMessageModal />}
       <Link
         to="/"
         className="mb-6 mt-4 inline-block text-base text-black/50 sm:mt-12 xl:mb-10 xl:mt-20"
