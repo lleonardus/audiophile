@@ -4,6 +4,11 @@ import { ButtonLink } from "../../../ui/ButtonLink";
 export function SummarySection({ handleSubmit }) {
   const { cartItems, totalPrice, shipping, vat, total } = useCart();
 
+  function handleClick() {
+    document.documentElement.scrollIntoView({ behavior: "smooth" });
+    handleSubmit();
+  }
+
   return (
     <div className="rounded-lg bg-white px-6 py-8 sm:px-[33px] xl:h-fit">
       <h3 className="text-lg uppercase">Summary</h3>
@@ -65,7 +70,7 @@ export function SummarySection({ handleSubmit }) {
           </span>
         </div>
         <ButtonLink
-          onClick={handleSubmit}
+          onClick={handleClick}
           type="submit"
           color="orange"
           width="100%"
