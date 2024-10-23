@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useCart } from "../../contexts/CartContext";
 import { SuccessMessageModal } from "./components/SuccessMessageModal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Label } from "./components/form/Label";
 import { Input } from "./components/form/Input";
 import { InputRadio } from "./components/form/InputRadio";
@@ -9,6 +10,16 @@ import { CashOnDeliveryMessage } from "./components/form/CashOnDeliveryMessage";
 import { SummarySection } from "./components/SummarySection";
 
 export function Checkout() {
+  const navigate = useNavigate();
+  const { cartItems } = useCart();
+
+  useEffect(
+    function () {
+      if (cartItems.length === 0) navigate("/");
+    },
+    [cartItems, navigate],
+  );
+
   const {
     register,
     handleSubmit,
@@ -17,15 +28,15 @@ export function Checkout() {
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      name: "2",
-      email: "email@emgail.com",
-      phoneNumber: "2",
-      address: "2",
-      zipCode: "2",
-      city: "2",
-      country: "2",
-      eMoneyNumber: "2",
-      eMoneyPin: "2",
+      name: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+      zipCode: "",
+      city: "",
+      country: "",
+      eMoneyNumber: "",
+      eMoneyPin: "",
     },
   });
 
