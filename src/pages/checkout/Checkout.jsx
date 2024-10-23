@@ -51,7 +51,7 @@ export function Checkout() {
       {isSubmitSuccessful && <SuccessMessageModal />}
       <Link
         to="/"
-        className="mb-6 mt-4 inline-block text-base text-black/50 sm:mt-12 xl:mb-10 xl:mt-20"
+        className="mb-6 mt-4 inline-block text-base text-black/50 transition-colors hover:text-orange-700 sm:mt-12 xl:mb-10 xl:mt-20"
       >
         Go Back
       </Link>

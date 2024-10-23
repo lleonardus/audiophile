@@ -32,7 +32,7 @@ export function ProductSection({ product }) {
     <section className="mt-16 px-6 sm:px-[39px] xl:px-[165px]">
       <Link
         to={`/categories/${product.category}`}
-        className="mb-6 inline-block text-base text-black/50 xl:mb-14"
+        className="mb-6 inline-block text-base text-black/50 transition-colors hover:text-orange-700 xl:mb-14"
       >
         Go Back
       </Link>
