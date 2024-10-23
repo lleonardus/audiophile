@@ -17,15 +17,15 @@ export function Checkout() {
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
-      address: "",
-      zipCode: "",
-      city: "",
-      country: "",
-      eMoneyNumber: "",
-      eMoneyPin: "",
+      name: "2",
+      email: "email@emgail.com",
+      phoneNumber: "2",
+      address: "2",
+      zipCode: "2",
+      city: "2",
+      country: "2",
+      eMoneyNumber: "2",
+      eMoneyPin: "2",
     },
   });
 
@@ -84,6 +84,10 @@ export function Checkout() {
                     isInvalid={errors.email}
                     register={register("email", {
                       required: "This field is required",
+                      pattern: {
+                        value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                        message: "Wrong format",
+                      },
                       onChange: () => {
                         clearErrors("email");
                       },
