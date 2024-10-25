@@ -9,7 +9,7 @@ export function Header() {
 
   return (
     <header
-      className="relative text-xs tracking-[0.125rem] text-white sm:px-10 xl:px-[165px]"
+      className="fixed z-[9999] w-full text-xs tracking-[0.125rem] text-white sm:px-10 xl:max-w-[1920px] xl:px-[165px]"
       style={{ backgroundColor: pathname === "/" ? "#191919" : "black" }}
     >
       <div className="flex items-center justify-between border-b border-white/10 px-6 py-8 sm:px-0 xl:pb-9 xl:pt-8">

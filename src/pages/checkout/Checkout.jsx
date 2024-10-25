@@ -14,7 +14,7 @@ export function Checkout() {
   const { cartItems } = useCart();
 
   useEffect(
-    function () {
+    function() {
       if (cartItems.length === 0) navigate("/");
     },
     [cartItems, navigate],

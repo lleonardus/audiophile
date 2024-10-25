@@ -38,11 +38,27 @@ export function SuccessMessageModal() {
     [navigate, removeAll],
   );
 
+  useEffect(
+    function () {
+      function handleScroll() {
+        const scrollTop = window.scrollY;
+        if (modalContentRef.current?.style && window.innerWidth < 640) {
+          modalContentRef.current.style.transform = `translateY(-${scrollTop}px)`;
+        }
+      }
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => window.removeEventListener("scroll", handleScroll);
+    },
+    [modalContentRef],
+  );
+
   return (
-    <div className="absolute inset-0 z-[99999] h-full min-h-screen translate-y-[90px] bg-black/50 px-6">
+    <div className="fixed inset-0 z-20 h-full min-h-screen translate-y-[90px] bg-black/50 px-6">
       <div
         ref={modalContentRef}
-        className="mt-[134px] rounded-lg bg-white p-8 sm:mx-auto sm:w-[540px] sm:p-12 xl:mt-[125px]"
+        className="mt-[30px] rounded-lg bg-white p-8 sm:mx-auto sm:w-[540px] sm:p-12"
       >
         <img
           src="/assets/checkout/icon-order-confirmation.svg"
