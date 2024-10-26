@@ -19,9 +19,13 @@ export function Cart() {
       <button
         ref={buttonRef}
         onClick={() => setIsModalOpen((isOpen) => !isOpen)}
-        className="text-white transition-colors hover:text-orange-700"
-        style={{ color: isModalOpen ? "#d87d4a" : "" }}
+        className={`relative transition-colors hover:text-orange-700 ${isModalOpen ? "text-orange-700" : ""}`}
       >
+        {cartItems.length > 0 && (
+          <span className="absolute -top-2.5 left-1/2 rounded-full bg-orange-700 px-2 py-1 text-[0.825rem] font-bold leading-[0.625rem] text-white">
+            {cartItems.length}
+          </span>
+        )}
         <IconCart />
       </button>
       <div
