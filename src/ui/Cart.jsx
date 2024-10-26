@@ -14,6 +14,11 @@ export function Cart() {
   const { isModalOpen, setIsModalOpen, buttonRef, modalContentRef } =
     useModal();
 
+  function handleRemoveAll() {
+    removeAll();
+    setIsModalOpen(false);
+  }
+
   return (
     <>
       <button
@@ -38,7 +43,7 @@ export function Cart() {
           <div className="flex w-full justify-between gap-2">
             <h3 className="text-lg uppercase">Cart({cartItems.length})</h3>
             <button
-              onClick={removeAll}
+              onClick={handleRemoveAll}
               className="text-base tracking-[0px] text-black/50 underline"
             >
               Remove all
