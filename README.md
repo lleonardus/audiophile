@@ -8,8 +8,10 @@ veio de um desafio do frontend mentor.
 ### 🧰 Ferramentas Utilizadas
 
 - [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [React](https://react.dev/)
 - [React Router](https://reactrouter.com/en/main)
+- [React Hot Toast](https://react-hot-toast.com/)
 - [Tailwind](https://tailwindcss.com/)
 - [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
