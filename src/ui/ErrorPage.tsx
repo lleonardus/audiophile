@@ -1,7 +1,13 @@
 import { Link, useRouteError } from "react-router-dom";
 
+interface ErrorType {
+  status: number;
+  statusText: string;
+  message: string;
+}
+
 export function ErrorPage() {
-  const error = useRouteError();
+  const error = useRouteError() as ErrorType;
 
   return (
     <div className="mx-auto flex h-screen w-screen flex-col items-center bg-black px-4 pt-10 text-base text-white sm:px-10">

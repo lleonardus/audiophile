@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export function useModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const modalContentRef = useRef<HTMLDivElement | null>(null);
+  const modalContentRef = useRef<HTMLDivElement>(null!);
 
   useEffect(function () {
     function handleClickOutside(e: MouseEvent) {

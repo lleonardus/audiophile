@@ -8,7 +8,7 @@ export function MobileMenu() {
   const [windowScrollY, setWindowScrollY] = useState(0);
 
   useEffect(
-    function() {
+    function () {
       const modalContent = modalContentRef.current;
       function handleScroll() {
         setWindowScrollY(window.scrollY);

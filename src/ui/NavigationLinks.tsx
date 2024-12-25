@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
-export function NavigationLinks({ className }) {
+interface NavigationLinksProps {
+  className?: string;
+}
+
+export function NavigationLinks({ className }: NavigationLinksProps) {
   return (
     <nav className={className}>
       <ul className="flex flex-col gap-4 text-xs uppercase tracking-[0.125rem] sm:flex-row sm:gap-[34px]">
