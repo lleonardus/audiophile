@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useCart } from "../../../contexts/CartContext";
 import { Link } from "react-router-dom";
 import { ButtonLink } from "../../../ui/ButtonLink";
@@ -27,6 +28,7 @@ export function ProductSection({ product }: { product: Product }) {
 
     addItem(newItem);
     setItemQuantity(1);
+    toast.success(`${newItem.name} added to cart!`);
   }
 
   return (
