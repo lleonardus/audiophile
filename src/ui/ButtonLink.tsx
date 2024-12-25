@@ -1,4 +1,14 @@
+import { MouseEventHandler } from "react";
 import { Link } from "react-router-dom";
+
+interface ButtonLinkProps {
+  children: string;
+  onClick?: MouseEventHandler;
+  color: "orange" | "transparent" | "black";
+  width?: string;
+  to?: string;
+  type?: "button" | "reset" | "submit" | undefined;
+}
 
 export function ButtonLink({
   children,
@@ -7,7 +17,7 @@ export function ButtonLink({
   width = "160px",
   to,
   type,
-}) {
+}: ButtonLinkProps) {
   const baseStyle = `inline-block py-[15px] text-[0.8125rem] text-center
                      font-bold uppercase tracking-[0.0625rem] transition-colors`;
 

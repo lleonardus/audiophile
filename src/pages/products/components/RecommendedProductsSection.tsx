@@ -1,6 +1,7 @@
 import { ButtonLink } from "../../../ui/ButtonLink";
+import { Product } from "../../../types/Product";
 
-export function RecommendedProductsSection({ product }) {
+export function RecommendedProductsSection({ product }: { product: Product }) {
   return (
     <section className="my-[120px] px-6 sm:px-[39px] xl:my-40 xl:px-[165px]">
       <h2 className="text-[1.5rem] text-xl uppercase leading-9 tracking-[0.05375rem] sm:text-center sm:text-3xl">

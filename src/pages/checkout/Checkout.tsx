@@ -9,12 +9,24 @@ import { InputRadio } from "./components/form/InputRadio";
 import { CashOnDeliveryMessage } from "./components/form/CashOnDeliveryMessage";
 import { SummarySection } from "./components/SummarySection";
 
+interface FormType {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  zipCode: string;
+  city: string;
+  country: string;
+  eMoneyNumber: string;
+  eMoneyPin: string;
+}
+
 export function Checkout() {
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
   useEffect(
-    function() {
+    function () {
       if (cartItems.length === 0) navigate("/");
     },
     [cartItems, navigate],
@@ -25,24 +37,11 @@ export function Checkout() {
     handleSubmit,
     clearErrors,
     formState: { errors, isSubmitSuccessful },
-  } = useForm({
-    mode: "onChange",
-    defaultValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
-      address: "",
-      zipCode: "",
-      city: "",
-      country: "",
-      eMoneyNumber: "",
-      eMoneyPin: "",
-    },
-  });
+  } = useForm<FormType>();
 
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
 
-  function onSubmit(formData) {
+  function onSubmit(formData: any) {
     console.log(formData);
   }
 
@@ -70,7 +69,7 @@ export function Checkout() {
               </h3>
               <div className="wrapper grid gap-y-6 sm:grid-cols-2 sm:gap-x-4">
                 <div>
-                  <Label htmlFor="name" errors={errors} errorName="name">
+                  <Label htmlFor="name" error={errors.name}>
                     Name
                   </Label>
                   <Input
@@ -86,7 +85,7 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email" errors={errors} errorName="email">
+                  <Label htmlFor="email" error={errors.email}>
                     Email Address
                   </Label>
                   <Input
@@ -106,11 +105,7 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <Label
-                    htmlFor="phoneNumber"
-                    errors={errors}
-                    errorName="phoneNumber"
-                  >
+                  <Label htmlFor="phoneNumber" error={errors.phoneNumber}>
                     Phone Number
                   </Label>
                   <Input
@@ -133,7 +128,7 @@ export function Checkout() {
               </h3>
               <div className="wrapper grid gap-y-6 sm:grid-cols-2 sm:gap-x-4">
                 <div className="sm:col-span-2">
-                  <Label htmlFor="address" errors={errors} errorName="address">
+                  <Label htmlFor="address" error={errors.address}>
                     Your Adress
                   </Label>
                   <Input
@@ -149,7 +144,7 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="zipCode" errors={errors} errorName="zipCode">
+                  <Label htmlFor="zipCode" error={errors.zipCode}>
                     Zip Code
                   </Label>
                   <Input
@@ -166,7 +161,7 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="city" errors={errors} errorName="city">
+                  <Label htmlFor="city" error={errors.city}>
                     City
                   </Label>
                   <Input
@@ -182,7 +177,7 @@ export function Checkout() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="country" errors={errors} errorName="country">
+                  <Label htmlFor="country" error={errors.country}>
                     Country
                   </Label>
                   <Input
@@ -225,11 +220,7 @@ export function Checkout() {
               {paymentMethod === "e-Money" && (
                 <div className="mt-8 grid w-full gap-6 sm:mt-6 sm:grid-cols-2 sm:gap-4">
                   <div>
-                    <Label
-                      htmlFor="eMoneyNumber"
-                      errors={errors}
-                      errorName="eMoneyNumber"
-                    >
+                    <Label htmlFor="eMoneyNumber" error={errors.eMoneyNumber}>
                       e-Money Number
                     </Label>
                     <Input
@@ -246,11 +237,7 @@ export function Checkout() {
                     />
                   </div>
                   <div>
-                    <Label
-                      htmlFor="eMoneyPin"
-                      errors={errors}
-                      errorName="eMoneyPin"
-                    >
+                    <Label htmlFor="eMoneyPin" error={errors.eMoneyPin}>
                       e-Money Pin
                     </Label>
                     <Input

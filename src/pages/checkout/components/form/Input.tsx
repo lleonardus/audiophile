@@ -1,4 +1,21 @@
-export function Input({ id, type = "text", isInvalid, placeholder, register }) {
+import { HTMLInputTypeAttribute } from "react";
+import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+
+interface InputProps {
+  id?: string;
+  type?: HTMLInputTypeAttribute;
+  isInvalid?: FieldError;
+  placeholder: string;
+  register: UseFormRegisterReturn;
+}
+
+export function Input({
+  id,
+  type = "text",
+  isInvalid,
+  placeholder,
+  register,
+}: InputProps) {
   return (
     <input
       id={id}

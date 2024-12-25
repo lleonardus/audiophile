@@ -1,4 +1,6 @@
-export function ProductInfoSection({ product }) {
+import { Product } from "../../../types/Product";
+
+export function ProductInfoSection({ product }: { product: Product }) {
   return (
     <section className="mt-[88px] space-y-[88px] px-4 sm:space-y-[120px] sm:px-[39px] xl:space-y-[160px] xl:px-[165px]">
       <div className="flex flex-col gap-[88px] xl:flex-row xl:gap-[120px]">

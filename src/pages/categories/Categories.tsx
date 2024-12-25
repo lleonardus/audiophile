@@ -11,7 +11,7 @@ const categories = Array.from(
 export function Categories() {
   const { category } = useParams();
 
-  if (!categories.includes(category)) {
+  if (category && !categories.includes(category)) {
     throw new Response(null, { status: 404, statusText: "Category not found" });
   }
 

@@ -1,6 +1,17 @@
+import { MouseEventHandler } from "react";
 import { Link } from "react-router-dom";
 
-export function ListOfCategories({ className, componentRef, handleLinkClick }) {
+interface ListOfCategoriesProps {
+  className?: string;
+  componentRef?: React.LegacyRef<HTMLDivElement>;
+  handleLinkClick?: MouseEventHandler;
+}
+
+export function ListOfCategories({
+  className,
+  componentRef,
+  handleLinkClick,
+}: ListOfCategoriesProps) {
   return (
     <div
       ref={componentRef}

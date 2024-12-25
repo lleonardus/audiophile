@@ -7,16 +7,20 @@ export function SuccessMessageModal() {
   const { cartItems, total, removeAll } = useCart();
   const item = cartItems[0];
 
-  const modalContentRef = useRef(null);
-  const navigate = useNavigate("/");
+  const modalContentRef = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
 
   useEffect(
-    function () {
-      function handleClick(e) {
+    function() {
+      function handleClick(e: MouseEvent) {
+        const target = e.target as HTMLElement;
+
         const isInsideBlackArea =
-          modalContentRef.current?.parentElement.contains(e.target);
-        const isInsideWhiteArea = modalContentRef.current?.contains(e.target);
-        const isLink = e.target.tagName === "A";
+          modalContentRef.current?.parentElement?.contains(e.target as Node);
+        const isInsideWhiteArea = modalContentRef.current?.contains(
+          e.target as Node,
+        );
+        const isLink = target.tagName === "A";
 
         if (
           (!isInsideBlackArea && !isLink) ||
@@ -24,10 +28,7 @@ export function SuccessMessageModal() {
         ) {
           navigate("/");
           removeAll();
-        } else if (
-          (!isInsideWhiteArea && isLink) ||
-          e.target.tagName === "svg"
-        ) {
+        } else if ((!isInsideWhiteArea && isLink) || target.tagName === "svg") {
           removeAll();
         }
       }
@@ -39,7 +40,7 @@ export function SuccessMessageModal() {
   );
 
   useEffect(
-    function () {
+    function() {
       function handleScroll() {
         const scrollTop = window.scrollY;
         if (modalContentRef.current?.style && window.innerWidth < 640) {

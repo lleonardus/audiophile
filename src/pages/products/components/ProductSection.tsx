@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useCart } from "../../../contexts/CartContext";
 import { Link } from "react-router-dom";
 import { ButtonLink } from "../../../ui/ButtonLink";
+import { Product } from "../../../types/Product";
 
-export function ProductSection({ product }) {
+export function ProductSection({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [itemQuantity, setItemQuantity] = useState(1);
 
