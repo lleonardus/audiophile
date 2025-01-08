@@ -5,15 +5,7 @@ earphones, caixas de som e acessórios.
 A [ideia do design](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx)
 veio de um desafio do frontend mentor.
 
-### 🧰 Ferramentas Utilizadas
-
-- [Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [React](https://react.dev/)
-- [React Router](https://reactrouter.com/en/main)
-- [React Hot Toast](https://react-hot-toast.com/)
-- [Tailwind](https://tailwindcss.com/)
-- [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+![Preview](docs/images/preview.jpg)
 
 ## 💿 Como rodar na sua máquina
 
@@ -37,3 +29,13 @@ $ npm run dev
 ```
 
 Após esse processo, o App vai estar rodando em **http://localhost:5173**
+
+### 🧰 Ferramentas Utilizadas
+
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [React Router](https://reactrouter.com/en/main)
+- [React Hot Toast](https://react-hot-toast.com/)
+- [Tailwind](https://tailwindcss.com/)
+- [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
