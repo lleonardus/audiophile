@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-interface ICartItems {
+interface CartItemsType {
   id: number;
   slug: string;
   name: string;
@@ -9,23 +9,23 @@ interface ICartItems {
   quantity: number;
 }
 
-interface ICartContext {
-  cartItems: ICartItems[];
+interface CartContextType {
+  cartItems: CartItemsType[];
   totalPrice: number;
   shipping: number;
   vat: number;
   total: number;
-  addItem: (newItem: ICartItems) => void;
+  addItem: (newItem: CartItemsType) => void;
   incrementQuantity: (itemId: number) => void;
   decrementQuantity: (itemId: number) => void;
   removeAll: () => void;
 }
 
-const CartContext = createContext<ICartContext | null>(null);
+const CartContext = createContext<CartContextType | null>(null);
 const CART_ITEMS = "cartItems";
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [cartItems, setCartItems] = useState<ICartItems[]>(() => {
+  const [cartItems, setCartItems] = useState<CartItemsType[]>(() => {
     const items = localStorage.getItem(CART_ITEMS);
 
     return items ? JSON.parse(items) : [];
@@ -41,12 +41,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const vat = 0.2 * totalPrice;
   const total = totalPrice + shipping + vat;
 
-  function updateCartItems(newCartItems: ICartItems[]) {
+  function updateCartItems(newCartItems: CartItemsType[]) {
     setCartItems(newCartItems);
     localStorage.setItem(CART_ITEMS, JSON.stringify(newCartItems));
   }
 
-  function reduceName(item: ICartItems) {
+  function reduceName(item: CartItemsType) {
     let slug = item.slug.replaceAll("-", " ");
     let name = item.name.length < slug.length ? item.name : slug;
 
@@ -55,7 +55,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return name.length <= 12 ? name : name.split(" ")[0];
   }
 
-  function addItem(newItem: ICartItems) {
+  function addItem(newItem: CartItemsType) {
     newItem.reducedName = reduceName(newItem);
     const existingItem = cartItems.find((item) => item.id === newItem.id);
     const newCartItems = !existingItem
@@ -91,7 +91,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     updateCartItems([]);
   }
 
-  const value: ICartContext = {
+  const value: CartContextType = {
     cartItems,
     totalPrice,
     shipping,
